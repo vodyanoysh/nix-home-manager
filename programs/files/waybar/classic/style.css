@@ -1,0 +1,110 @@
+* {
+  border: none;
+  border-radius: 0;
+  /* font-family: "JetBrainsMono Nerd Font", monospace; */
+  font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", monospace;
+  font-size: 13px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: #101010; 
+  color: #ffffff;
+  transition-property: background-color;
+  transition-duration: .5s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+#workspaces {
+  margin: 0 10px;
+}
+
+#workspaces button {
+  padding: 0 8px;
+  background-color: transparent;
+  color: #cccccc;
+  border-bottom: 2px solid transparent;
+  margin: 0 2px;
+  transition: all 0.3s ease;
+}
+
+#workspaces button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+#workspaces button.focused {
+  color: #ffffff;
+  border-bottom: 2px solid #ffffff;
+}
+
+/* Модули в стиле macOS - минималистичные без явных границ */
+#custom-launcher,
+#custom-power,
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio {
+  padding: 0 12px;
+  margin: 4px 4px;
+  color: #ffffff;
+  background-color: transparent;
+}
+
+/* Часы по центру в стиле macOS */
+#clock {
+  font-weight: bold;
+  font-size: 13.5px;
+}
+
+#custom-launcher {
+  color: #ffffff;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+#custom-power {
+  color: #ffffff;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+/* Системные индикаторы в стиле macOS */
+#cpu, #memory, #network, #pulseaudio, #battery {
+  font-size: 13px;
+}
+
+/* Когда модули требуют внимания, применяем минималистичные индикаторы */
+#battery.charging {
+  color: #a8e06f;
+}
+
+#battery.warning:not(.charging) {
+  color: #ff9e64;
+  animation-name: pulse;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#battery.critical:not(.charging) {
+  color: #f7768e;
+  animation-name: pulse;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.7;
+  }
+}
+
