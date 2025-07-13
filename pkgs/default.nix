@@ -19,6 +19,7 @@
     ruff
     
     nodejs
+    go
     docker-compose
     
     luajit         # LuaJIT (ускоренная версия Lua 5.1, обратно совместимая)
